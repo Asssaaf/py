@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% block body %}
+<div class="container">
+
+
+    <div class="alert alert-warning text-danger"><h4>{{m_info.date.date()}}</h4>
+        <h2>{{ m_info.title }}
+    </h2>
+        <p>
+            {{m_info.intro}}
+        </p>
+        <a>{{m_info.m_text}}</a><br>
+        <a href="{{m_info.id}}/del" class="btn btn-danger">Delete</a>
+        <input type="submit" value='Update' class="btn btn-success">
+    </div>
+
+</div>
+
+{% endblock %}

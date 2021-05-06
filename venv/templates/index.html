@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% block body %}
+<div class="container mt-4">
+    {% for a in notes %}
+    <div class="alert alert-warning text-danger"><h4>{{a.date.date()}}</h4>
+        <h2>{{ a.title }}
+    </h2>
+        <p>
+            {{a.intro}}
+        </p>
+        <a href="/info/{{a.id}}" class="btn btn-outline-primary">Details</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

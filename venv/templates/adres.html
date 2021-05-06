@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% block body %}
+<div class="container">
+    <h1>Adres</h1>
+<table class="table-hover">
+ <thead>
+  <tr>
+{% for x in dname[0].keys() %}
+
+            <th>{{x}}</th>
+
+    {% endfor %}
+ </tr>
+</thead>
+    {% for x in dname %}
+    <tr>
+    {% for z in x.values() %}
+
+        <td>{{z}}</td>
+
+
+    {% endfor %}
+    </tr>
+    {% endfor %}
+
+</table>
+</div>
+{% endblock %}
