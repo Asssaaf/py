@@ -69,5 +69,17 @@ def del_s(id):
         return redirect('/')
     except:
         return 'error'
+@app.route('/info/<int:id>/edit',methods=['POST','GET'])
+def edit(id):
+    e_t = Blog.query.get(id)
+    if request.method == 'POST':
+        title = request.form['title']
+        intro = request.form['intro']
+        m_text = request.form['m_text']
+        print(title)
+        redirect('/')
+    else:
+        return render_template('editArt.html',title=e_t.title,intro=e_t.intro,m_text=e_t.m_text)
+
 if __name__=='__main__':
     app.run(debug=True)
