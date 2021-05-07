@@ -73,13 +73,17 @@ def del_s(id):
 def edit(id):
     e_t = Blog.query.get(id)
     if request.method == 'POST':
-        title = request.form['title']
-        intro = request.form['intro']
-        m_text = request.form['m_text']
-        print(title)
-        redirect('/')
-    else:
-        return render_template('editArt.html',title=e_t.title,intro=e_t.intro,m_text=e_t.m_text)
+
+        try:
+            e_t.title = request.form['title']
+            e_t.intro = request.form['intro']
+            e_t.m_text = request.form['m_text']
+            db.session.commit()
+        except:
+            return redirect('/')
+        return redirect('/')
+
+    return render_template('editArt.html',title=e_t.title,intro=e_t.intro,m_text=e_t.m_text)
 
 if __name__=='__main__':
     app.run(debug=True)
